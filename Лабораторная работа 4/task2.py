@@ -12,9 +12,7 @@ def get_count_char(str_):
 
 
 def percentil(dictionary):
-    total = 0
-    for each in dictionary:
-        total += dictionary[each]
+    total = sum(dictionary.values())
     for each in dictionary:
         dictionary[each] = f'{dictionary[each]/total*100} %'
     return dictionary
