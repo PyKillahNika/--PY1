@@ -3,17 +3,9 @@ OUTPUT_FILE = "output.csv"
 
 def to_csv_file(filename, headers, rows, delimiter=",", new_line="\n"):
     with open(filename, "w") as f:
-        for each in headers:
-            f.write(each)
-            if headers.index(each) is not len(headers)-1:
-                f.write(delimiter)
-        f.write(new_line)
-        for spisok in rows:
-            for each in spisok:
-                f.write(each)
-                if spisok.index(each) is not len(spisok) - 1:
-                    f.write(delimiter)
-            f.write(new_line)
+        f.write(delimiter.join(headers)+new_line)
+        for each in rows:
+            f.write(delimiter.join(each)+new_line)
 
 
 headers_list = ['longitude', 'latitude', 'housing_median_age', 'total_rooms', 'total_bedrooms', 'population', 'households', 'median_income', 'median_house_value']
